@@ -24,6 +24,8 @@
   --radius-sm: 12px;
   --font-display: "Sora", "Space Grotesk", system-ui, sans-serif;
   --font-body: "Space Grotesk", system-ui, sans-serif;
+  --font-logo: "Baloo 2", "Sora", system-ui, sans-serif;
+  --brand-blue: #2b57db;
 }
 
 :root[data-theme="light"] {
@@ -110,19 +112,20 @@ img, svg { max-width: 100%; }
 
 .brand { display: flex; align-items: center; gap: 10px; }
 
-.brand-badge {
-  display: grid;
-  place-items: center;
-  width: 40px; height: 40px;
-  border-radius: 12px;
-  font-size: 20px;
-  background: var(--gradient-brand);
-  box-shadow: var(--shadow-glow);
+.brand-logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 0.85;
+}
+.brand-logo-line {
+  font-family: var(--font-logo);
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--brand-blue);
+  letter-spacing: -0.01em;
 }
 
-.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
-.brand-name { font-family: var(--font-display); font-weight: 700; font-size: 0.95rem; }
-.brand-sub { font-size: 0.7rem; color: var(--text-faint); letter-spacing: 0.04em; }
+.brand-sub { font-size: 0.85rem; color: var(--text-dim); letter-spacing: 0.03em; margin-left: 2px; }
 
 .icon-btn {
   width: 40px; height: 40px;
@@ -536,6 +539,46 @@ img, svg { max-width: 100%; }
 }
 .site-footer p { margin: 4px 0; }
 .footer-tag { font-size: 0.78rem; opacity: 0.75; }
+
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+}
+.footer-social:hover {
+  transform: translateY(-3px);
+  border-color: transparent;
+  color: #fff;
+  background: linear-gradient(135deg, #f58529 0%, #dd2a7b 45%, #8134af 70%, #515bd4 100%);
+}
+.footer-social-icon { display: inline-flex; }
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.85;
+  margin-bottom: 12px;
+}
+.footer-logo-line {
+  font-family: var(--font-logo);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--brand-blue);
+  letter-spacing: -0.01em;
+}
+
+.brand-word { font-family: var(--font-logo); color: var(--brand-blue); font-weight: 700; }
 
 /* ---------------- Scroll to top ---------------- */
 .scroll-top-btn {
