@@ -266,6 +266,8 @@ img, svg { max-width: 100%; }
   cursor: pointer;
   overflow: hidden;
   text-align: left;
+  color: var(--text);
+  font-family: inherit;
   transition: transform 0.3s cubic-bezier(.2,.8,.2,1), border-color 0.3s ease, box-shadow 0.3s ease;
   animation: cardIn 0.5s ease backwards;
 }
@@ -306,6 +308,7 @@ img, svg { max-width: 100%; }
   font-weight: 700;
   font-size: 1.05rem;
   margin: 0 0 6px;
+  color: var(--text);
   position: relative;
   z-index: 1;
 }
