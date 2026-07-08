@@ -24,3 +24,11 @@ There is **no test suite and no `typecheck` script**. Run `npm run lint` before 
 - `README.md` is the default Vite template boilerplate — not project-specific; ignore it for context.
 - `detailed.md` describes the **previous** vanilla-JS app (hash routing, `script.js`, `style.css`, dark theme) that no longer exists. It is kept only as a content/schema reference. When it conflicts with `src/`, **trust the code**.
 - `design.md` is the authoritative design system and is enforced for UI/CSS work. Its anti-patterns are hard rules, not suggestions — notably: no `Inter` font, no pure black `#000000`, no emojis in the UI, no neon/outer-glow shadows, no 3-column equal grids for domain lists, no centered hero (use asymmetric/split layouts), pill-shaped buttons (`border-radius: 9999px`), and animate only `transform`/`opacity`. Read it before touching styles.
+
+## Responsive Design
+- The orbital layout is strictly desktop-only. On mobile (`max-width: 768px`), absolute positioning and `ellipseSpin` animations must be disabled. Domain cards fall into a scrolling vertical stack. 
+- Kanban boards must collapse from a 4-column layout to a 1-column layout on mobile (`grid-template-columns: 1fr`).
+- Dynamic subdomain backgrounds are generated algorithmically using `getBackgroundForSub(activeSubId)` in `App.jsx`, tinted over the Three.js grid using `mix-blend-mode: overlay`. Do not hardcode colors in `data.js`.
+
+## Deployment
+- The app is deployed via Vercel CLI to the project `pioneers-roadmap`. Use `npx vercel --yes` for preview deployments and `npx vercel --prod --yes` for production builds. The name is locked via `vercel.json`.
