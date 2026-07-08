@@ -3,6 +3,7 @@ import { BrowserRouter, useNavigate, useLocation } from 'react-router-dom';
 import { ROADMAP_DATA } from './data';
 import './styles/global.css';
 import GridScan from './GridScan';
+import Aurora from './Aurora';
 
 const IconPc = () => (
   <img
@@ -13,26 +14,79 @@ const IconPc = () => (
   />
 );
 
-const SearchBar = ({ query, setQuery }) => (
-  <div className="search-container">
-    <IconPc />
-    <input
-      type="text"
-      className="search-input"
-      placeholder="Search domains or career paths..."
-      value={query}
-      onChange={(e) => setQuery(e.target.value)}
-    />
-  </div>
-);
+const SearchBar = ({ query, setQuery, searchIndex, navigate }) => {
+  const [isFocused, setIsFocused] = useState(false);
+  
+  const filtered = useMemo(() => {
+    if (!query.trim()) return [];
+    const lowerQ = query.toLowerCase();
+    return searchIndex.filter(item => 
+      item.name.toLowerCase().includes(lowerQ) ||
+      (item.tagline && item.tagline.toLowerCase().includes(lowerQ))
+    ).slice(0, 5);
+  }, [query, searchIndex]);
 
-// Generates a dynamic HSL gradient background for a given subdomain string ID
-function getBackgroundForSub(subId) {
-  if (!subId) return 'transparent';
+  return (
+    <div className="search-container">
+      <IconPc />
+      <input
+        type="text"
+        className="search-input"
+        placeholder="Search domains or career paths..."
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+      />
+      {isFocused && query.trim() && filtered.length > 0 && (
+        <ul className="search-dropdown">
+          {filtered.map(item => (
+            <li 
+              key={item.url} 
+              className="search-result-item"
+              onMouseDown={(e) => {
+                e.preventDefault(); 
+                setQuery('');
+                setIsFocused(false);
+                navigate(item.url);
+              }}
+            >
+              <span className="result-icon">{item.icon}</span>
+              <div className="result-details">
+                <span className="result-name">{item.name}</span>
+                <span className="result-type">{item.type}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
+// Utility to convert HSL to Hex for the Aurora color stops
+function hslToHex(h, s, l) {
+  l /= 100;
+  const a = s * Math.min(l, 1 - l) / 100;
+  const f = n => {
+    const k = (n + h / 30) % 12;
+    const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+    return Math.round(255 * color).toString(16).padStart(2, '0');
+  };
+  return `#${f(0)}${f(8)}${f(4)}`;
+}
+
+// Generates dynamic aurora color stops based on a given subdomain string ID
+function getAuroraColorsForSub(subId) {
+  if (!subId) return ["#0D52BF","#06B6D4","#0D52BF"];
   let hash = 0;
   for (let i = 0; i < subId.length; i++) hash = subId.charCodeAt(i) + ((hash << 5) - hash);
   const hue = Math.abs(hash % 360);
-  return `linear-gradient(135deg, hsla(${hue}, 80%, 15%, 0.8) 0%, hsla(${hue + 40}, 90%, 10%, 0.95) 100%)`;
+  return [
+    hslToHex(hue, 80, 50),
+    hslToHex((hue + 40) % 360, 90, 60),
+    hslToHex((hue - 30 + 360) % 360, 80, 40)
+  ];
 }
 
 function AppContent() {
@@ -48,6 +102,49 @@ function AppContent() {
   const activeSubId = pathParts.length > 1 ? pathParts[1] : null;
 
   const domains = useMemo(() => Object.values(ROADMAP_DATA), []);
+
+  const searchIndex = useMemo(() => {
+    const items = [];
+    Object.values(ROADMAP_DATA).forEach(domain => {
+      items.push({
+        type: 'Domain',
+        id: domain.id,
+        name: domain.name,
+        icon: domain.icon,
+        tagline: domain.tagline,
+        url: `/${domain.id}`
+      });
+      if (domain.subdomains) {
+        Object.values(domain.subdomains).forEach(sub => {
+          items.push({
+            type: 'Career Path',
+            id: sub.id,
+            name: sub.name,
+            icon: sub.icon,
+            tagline: sub.intro?.what || '',
+            url: `/${domain.id}/${sub.id}`
+          });
+        });
+      }
+      if (domain.categories) {
+        Object.values(domain.categories).forEach(cat => {
+          if (cat.subdomains) {
+            Object.values(cat.subdomains).forEach(sub => {
+              items.push({
+                type: 'Career Path',
+                id: sub.id,
+                name: sub.name,
+                icon: sub.icon,
+                tagline: sub.intro?.what || '',
+                url: `/${domain.id}/${sub.id}`
+              });
+            });
+          }
+        });
+      }
+    });
+    return items;
+  }, []);
 
   // Real-time search filter for orbital dimming
   const matchingDomainIds = useMemo(() => {
@@ -112,13 +209,20 @@ function AppContent() {
            position: 'absolute', 
            inset: 0, 
            zIndex: 0, 
-           background: getBackgroundForSub(activeSubId),
            opacity: isFullScreenView ? 1 : 0,
-           transition: 'opacity 0.6s ease, background 0.6s ease',
-           pointerEvents: 'none',
-           mixBlendMode: 'overlay'
+           transition: 'opacity 0.6s ease',
+           pointerEvents: 'none'
          }} 
-      />
+      >
+        {isFullScreenView && (
+          <Aurora 
+            colorStops={getAuroraColorsForSub(activeSubId)}
+            blend={0.84}
+            amplitude={1.0}
+            speed={0.6}
+          />
+        )}
+      </div>
 
       {/* Persistent Breadcrumb / Header */}
       <div className="header-bar">
@@ -145,7 +249,7 @@ function AppContent() {
       }>
         <div className="hero-center">
           <h1>Discover Your <br /><span style={{ color: 'var(--pioneers-royal)' }}>Career Path</span></h1>
-          <SearchBar query={searchQuery} setQuery={setSearchQuery} />
+          <SearchBar query={searchQuery} setQuery={setSearchQuery} searchIndex={searchIndex} navigate={navigate} />
         </div>
 
         <div className="orbit-ring">
