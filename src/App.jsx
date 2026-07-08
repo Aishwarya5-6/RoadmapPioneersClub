@@ -3,23 +3,26 @@ import { ROADMAP_DATA } from './data';
 import './styles/global.css';
 import GridScan from './GridScan';
 
-// SVG Icons
-const IconRocket = () => (
-  <svg className="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2l.5-.5a5.4 5.4 0 0 0 1-1.5l2-2a5.4 5.4 0 0 0 1-1.5l.5-.5M15 4c-1.26-1.5-5-2-5-2s.5 3.74 2 5l.5.5a5.4 5.4 0 0 0 1.5 1l2 2a5.4 5.4 0 0 0 1.5 1l.5.5" />
-    <path d="M12 15l-3-3a22 22 0 0 1-3-3.7V4h4.3c1.4 1 2.7 2 3.7 3l3 3" />
-    <path d="m9 11 4 4" />
-  </svg>
+const IconPc = () => (
+  <img
+    src="/pc-logo.png"
+    alt="Pioneers Club Logo"
+    className="search-logo"
+    style={{ borderRadius: '100%', objectFit: 'contain' }}
+  />
 );
 
 const SearchBar = ({ query, setQuery }) => (
-  <input
-    type="text"
-    className="search-input"
-    placeholder="Search domains or career paths..."
-    value={query}
-    onChange={(e) => setQuery(e.target.value)}
-  />
+  <div className="search-container">
+    <IconPc />
+    <input
+      type="text"
+      className="search-input"
+      placeholder="Search domains or career paths..."
+      value={query}
+      onChange={(e) => setQuery(e.target.value)}
+    />
+  </div>
 );
 
 export default function App() {
@@ -88,7 +91,7 @@ export default function App() {
       {/* Persistent Breadcrumb / Header */}
       <div className="header-bar">
         {isOrbitView ? (
-          <span className="brand">Pioneers Club</span>
+          <img src="/pc-logo-full.png" alt="Pioneers Club" style={{ height: '56px', objectFit: 'contain' }} />
         ) : (
           <nav className="breadcrumb">
             <button onClick={() => { setActiveDomainId(null); setActiveSubId(null); }}>Home</button>
@@ -116,7 +119,7 @@ export default function App() {
             'orbit-container hidden'
       }>
         <div className="hero-center">
-          <h1>Discover Your <IconRocket /> Career Path</h1>
+          <h1>Discover Your <br /><span style={{ color: 'var(--pioneers-royal)' }}>Career Path</span></h1>
           <SearchBar query={searchQuery} setQuery={setSearchQuery} />
         </div>
 

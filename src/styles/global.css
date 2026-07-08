@@ -146,23 +146,27 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 4.5rem;
   max-width: 600px;
 }
-.inline-icon {
-  display: inline-block;
-  vertical-align: middle;
-  width: 64px;
-  height: 64px;
-  background: var(--pioneers-royal);
-  color: white;
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.search-logo {
+  position: absolute;
+  left: 0.6rem;
+  width: 42px;
+  height: 42px;
+  z-index: 2;
   border-radius: 50%;
-  padding: 12px;
-  margin: 0 0.5rem;
-  box-shadow: 0 10px 30px rgba(13, 82, 191, 0.3);
+  box-shadow: 0 4px 12px rgba(13, 82, 191, 0.2);
 }
 
 .search-input {
   width: 100%;
-  max-width: 400px;
-  padding: 1.2rem 2rem;
+  padding: 1.2rem 2rem 1.2rem 3.8rem;
   font-size: 1.1rem;
   font-family: var(--font-body);
   border: 1px solid var(--whisper-border);
