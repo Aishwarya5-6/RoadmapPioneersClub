@@ -177,20 +177,26 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0 0 0 4px var(--sky-wash);
 }
 
-.orbit-ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 1px;
-  height: 1px;
-  animation: slowSpin 120s linear infinite;
-}
-@keyframes slowSpin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@property --spin-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: true;
 }
 
-.orbit-ring:hover, .orbit-ring:hover .orbit-card {
+.orbit-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: ellipseSpin 120s linear infinite;
+}
+@keyframes ellipseSpin {
+  from { --spin-angle: 0deg; }
+  to { --spin-angle: 360deg; }
+}
+
+.orbit-ring:has(.orbit-card:hover) {
   animation-play-state: paused;
 }
 
@@ -203,17 +209,13 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1.5rem;
   cursor: pointer;
   box-shadow: 0 8px 30px rgba(13, 82, 191, 0.04);
-  top: -100px;
-  left: -160px;
-  /* The counterSpin animation handles the transform now */
-  animation: counterSpin 120s linear infinite;
+  /* Ellipse math: 500px wide, 250px tall radius */
+  --current-angle: calc(var(--angle) + var(--spin-angle));
+  left: calc(50% + cos(var(--current-angle)) * 480px);
+  top: calc(50% + sin(var(--current-angle)) * 260px);
+  transform: translate(-50%, -50%);
   transition: box-shadow 0.3s, opacity 0.3s, scale 0.3s;
   scale: 1;
-}
-
-@keyframes counterSpin {
-  from { transform: rotate(var(--angle)) translateY(-400px) rotate(calc(-1 * var(--angle))) rotate(0deg); }
-  to { transform: rotate(var(--angle)) translateY(-400px) rotate(calc(-1 * var(--angle))) rotate(-360deg); }
 }
 
 .orbit-card:hover {
