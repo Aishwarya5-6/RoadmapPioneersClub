@@ -91,24 +91,17 @@ export default function App() {
       {/* Persistent Breadcrumb / Header */}
       <div className="header-bar">
         {isOrbitView ? (
-          <img src="/pc-logo-full.png" alt="Pioneers Club" style={{ height: '56px', objectFit: 'contain' }} />
+          <img src="/pc-logo-full.png" alt="Pioneers Club" style={{ height: '83px', objectFit: 'contain' }} />
         ) : (
-          <nav className="breadcrumb">
-            <button onClick={() => { setActiveDomainId(null); setActiveSubId(null); }}>Home</button>
-            <span>/</span>
-            <button
-              onClick={() => setActiveSubId(null)}
-              style={isModalView ? { color: 'var(--pioneers-royal)' } : {}}
-            >
-              {activeDomain?.name}
-            </button>
-            {isFullScreenView ? (
-              <>
-                <span>/</span>
-                <span style={{ color: 'var(--charcoal-ink)', fontWeight: 600 }}>{activeSub?.name}</span>
-              </>
-            ) : null}
-          </nav>
+          <button className="back-btn" onClick={() => {
+            if (activeSubId) {
+              setActiveSubId(null);
+            } else {
+              setActiveDomainId(null);
+            }
+          }}>
+            ← Back
+          </button>
         )}
       </div>
 
