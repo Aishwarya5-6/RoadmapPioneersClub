@@ -373,9 +373,20 @@ function AppContent() {
                 {activeSub.resources?.length ? (
                   <div className="kanban-col">
                     <h3>Resources</h3>
-                    {activeSub.resources.map((r, i) => (
-                      <div key={i} className="kanban-item"><h4>{r}</h4></div>
-                    ))}
+                    {activeSub.resources.map((r, i) => {
+                      const isObj = typeof r === 'object' && r !== null;
+                      return (
+                        <div key={i} className="kanban-item">
+                          <h4>
+                            {isObj && r.url ? (
+                              <a href={r.url} target="_blank" rel="noreferrer" className="resource-link">{r.name}</a>
+                            ) : (
+                              isObj ? r.name : r
+                            )}
+                          </h4>
+                        </div>
+                      );
+                    })}
                   </div>
                 ) : null}
 
