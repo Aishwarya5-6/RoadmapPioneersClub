@@ -6,7 +6,7 @@
    plain JS/JSON below — no need to touch script.js or index.html.
    ============================================================ */
 
-const ROADMAP_DATA = {
+export const ROADMAP_DATA = {
   engineering: {
     id: "engineering",
     name: "Engineering & Technology",

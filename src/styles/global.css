@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Satoshi:wght@400;500;600&family=JetBrains+Mono&display=swap');
+
+:root {
+  /* Colors */
+  --canvas-blueprint: #F8FAFC;
+  --pure-surface: #FFFFFF;
+  --charcoal-ink: #0F172A;
+  --muted-steel: #64748B;
+  --whisper-border: rgba(148, 163, 184, 0.25);
+  --pioneers-royal: #0D52BF;
+  --sky-wash: #E0E7FF;
+
+  /* Fonts */
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Satoshi', sans-serif; /* Fallback since Satoshi might need manual inclusion, we'll use system UI fallback if it fails, but let's assume it works or falls back gracefully */
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Layout & Motion */
+  --radius: 1.5rem;
+  --transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Spring physics */
+}
+
+/* Base Resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--canvas-blueprint);
+  color: var(--charcoal-ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  /* Blueprint Grid background */
+  background-image: 
+    linear-gradient(var(--whisper-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--whisper-border) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Layout Wrapper */
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+.header-logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--pioneers-royal);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Hero */
+.hero {
+  max-width: 800px;
+}
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+.hero .inline-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 48px;
+  height: 48px;
+  background: var(--pioneers-royal);
+  border-radius: 50%;
+  margin: 0 0.5rem;
+}
+
+/* Search Bar */
+.search-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  font-family: var(--font-body);
+  border: 1px solid var(--whisper-border);
+  border-radius: 9999px;
+  background: var(--pure-surface);
+  color: var(--charcoal-ink);
+  outline: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 20px rgba(13, 82, 191, 0.04);
+}
+.search-input:focus {
+  border-color: var(--pioneers-royal);
+  box-shadow: 0 0 0 4px var(--sky-wash);
+}
+
+/* Domain Grid */
+.domain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.domain-grid:has(> .expanded) {
+  grid-template-columns: 1fr; /* Single column when one is expanded */
+}
+
+/* Cards */
+.card {
+  background: var(--pure-surface);
+  border: 1px solid var(--whisper-border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 8px 30px rgba(13, 82, 191, 0.04);
+  position: relative;
+  overflow: hidden;
+}
+.card:not(.expanded):hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(13, 82, 191, 0.08);
+}
+.card.expanded {
+  cursor: default;
+  /* Full width handled by grid parent */
+}
+.card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.card p {
+  color: var(--muted-steel);
+}
+
+/* Subdomain Panel */
+.subdomain-panel {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--whisper-border);
+  animation: slideDown var(--transition);
+}
+.subdomain-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.subdomain-pill {
+  background: var(--canvas-blueprint);
+  border: 1px solid var(--whisper-border);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.subdomain-pill:hover, .subdomain-pill.active {
+  background: var(--pioneers-royal);
+  color: var(--pure-surface);
+  border-color: var(--pioneers-royal);
+  transform: translateY(-2px);
+}
+
+/* Kanban Roadmap */
+.kanban-wrapper {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 2rem;
+  scroll-snap-type: x mandatory;
+  animation: slideRight var(--transition);
+}
+.kanban-col {
+  flex: 0 0 320px;
+  background: var(--pure-surface);
+  border: 1px solid var(--whisper-border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  scroll-snap-align: start;
+}
+.kanban-col h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--canvas-blueprint);
+  display: inline-block;
+}
+.kanban-item {
+  background: var(--canvas-blueprint);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+.kanban-item h4 {
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
+}
+.kanban-tag {
+  display: inline-block;
+  background: var(--sky-wash);
+  color: var(--pioneers-royal);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--muted-steel);
+  margin-bottom: 2rem;
+}
+.breadcrumb button {
+  background: none;
+  border: none;
+  color: var(--pioneers-royal);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+.breadcrumb button:hover {
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.5rem; }
+  .kanban-col { flex: 0 0 280px; }
+  .layout { padding: 1rem; }
+}
