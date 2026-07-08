@@ -12,10 +12,10 @@ const IconRocket = () => (
 );
 
 const SearchBar = ({ query, setQuery }) => (
-  <input 
-    type="text" 
-    className="search-input" 
-    placeholder="Search domains or career paths..." 
+  <input
+    type="text"
+    className="search-input"
+    placeholder="Search domains or career paths..."
     value={query}
     onChange={(e) => setQuery(e.target.value)}
   />
@@ -27,18 +27,18 @@ export default function App() {
   const [activeSubId, setActiveSubId] = useState(null);
 
   const domains = useMemo(() => Object.values(ROADMAP_DATA), []);
-  
+
   // Real-time search filter for orbital dimming
   const matchingDomainIds = useMemo(() => {
     if (!searchQuery) return new Set(domains.map(d => d.id));
     const q = searchQuery.toLowerCase();
-    return new Set(domains.filter(d => 
+    return new Set(domains.filter(d =>
       d.name.toLowerCase().includes(q) || d.tagline?.toLowerCase().includes(q)
     ).map(d => d.id));
   }, [domains, searchQuery]);
 
   const activeDomain = activeDomainId ? ROADMAP_DATA[activeDomainId] : null;
-  
+
   const activeDomainSubs = useMemo(() => {
     if (!activeDomain) return [];
     let list = [];
@@ -78,7 +78,7 @@ export default function App() {
           <nav className="breadcrumb">
             <button onClick={() => { setActiveDomainId(null); setActiveSubId(null); }}>Home</button>
             <span>/</span>
-            <button 
+            <button
               onClick={() => setActiveSubId(null)}
               style={isModalView ? { color: 'var(--pioneers-royal)' } : {}}
             >
@@ -96,22 +96,22 @@ export default function App() {
 
       {/* 1. ORBITAL CENTERPIECE */}
       <div className={
-        isOrbitView ? 'orbit-container' : 
-        isModalView ? 'orbit-container background' : 
-        'orbit-container hidden'
+        isOrbitView ? 'orbit-container' :
+          isModalView ? 'orbit-container background' :
+            'orbit-container hidden'
       }>
         <div className="hero-center">
-          <h1>Discover Your <IconRocket /> Tech Career Path</h1>
+          <h1>Discover Your <IconRocket /> Career Path</h1>
           <SearchBar query={searchQuery} setQuery={setSearchQuery} />
         </div>
-        
+
         <div className="orbit-ring">
           {domains.map((domain, index) => {
             const angle = index * angleStep;
             const isMatch = matchingDomainIds.has(domain.id);
             return (
-              <div 
-                key={domain.id} 
+              <div
+                key={domain.id}
                 className={isMatch ? 'orbit-card' : 'orbit-card dimmed'}
                 style={{ '--angle': `${angle}deg` }}
                 onClick={() => {
@@ -137,8 +137,8 @@ export default function App() {
         </div>
         <div className="subdomain-grid">
           {activeDomainSubs.map((sub, i) => (
-            <button 
-              key={sub.id} 
+            <button
+              key={sub.id}
               className="subdomain-pill"
               style={{ animationDelay: `${i * 0.05}s` }}
               onClick={() => setActiveSubId(sub.id)}
@@ -155,7 +155,7 @@ export default function App() {
           <>
             <h1>{activeSub.name}</h1>
             <div className="kanban-scroll">
-              
+
               {activeSub.beginner?.topics?.length ? (
                 <div className="kanban-col">
                   <h3>Beginner</h3>
