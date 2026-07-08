@@ -190,6 +190,10 @@ h1, h2, h3, h4, h5, h6 {
   to { transform: rotate(360deg); }
 }
 
+.orbit-ring:hover, .orbit-ring:hover .orbit-card {
+  animation-play-state: paused;
+}
+
 .orbit-card {
   position: absolute;
   width: 320px;
@@ -199,19 +203,22 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1.5rem;
   cursor: pointer;
   box-shadow: 0 8px 30px rgba(13, 82, 191, 0.04);
-  /* The magic orbital math */
-  top: -100px; /* offset by half height roughly */
-  left: -160px; /* offset by half width */
-  transform: rotate(var(--angle)) translateY(-400px) rotate(calc(-1 * var(--angle)));
-  transition: transform var(--transition), box-shadow 0.3s, opacity 0.3s;
+  top: -100px;
+  left: -160px;
+  /* The counterSpin animation handles the transform now */
+  animation: counterSpin 120s linear infinite;
+  transition: box-shadow 0.3s, opacity 0.3s, scale 0.3s;
+  scale: 1;
 }
-.orbit-ring:hover .orbit-card {
-  animation-play-state: paused;
+
+@keyframes counterSpin {
+  from { transform: rotate(var(--angle)) translateY(-400px) rotate(calc(-1 * var(--angle))) rotate(0deg); }
+  to { transform: rotate(var(--angle)) translateY(-400px) rotate(calc(-1 * var(--angle))) rotate(-360deg); }
 }
+
 .orbit-card:hover {
   box-shadow: 0 20px 50px rgba(13, 82, 191, 0.1);
-  /* slight scale up while maintaining orbit position via calc */
-  transform: rotate(var(--angle)) translateY(-400px) rotate(calc(-1 * var(--angle))) scale(1.05);
+  scale: 1.05;
   z-index: 20;
 }
 .orbit-card.dimmed {
