@@ -64,6 +64,22 @@ const SearchBar = ({ query, setQuery, searchIndex, navigate }) => {
   );
 };
 
+const KanbanSection = ({ title, children }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  
+  return (
+    <div className={`kanban-col ${isOpen ? 'is-open' : ''}`}>
+      <h3 className="kanban-col-header" onClick={() => setIsOpen(!isOpen)}>
+        {title}
+        <span className="mobile-chevron">{isOpen ? '▲' : '▼'}</span>
+      </h3>
+      <div className="kanban-col-content">
+        {children}
+      </div>
+    </div>
+  );
+};
+
 // Utility to convert HSL to Hex for the Aurora color stops
 function hslToHex(h, s, l) {
   l /= 100;
@@ -313,66 +329,60 @@ function AppContent() {
 
               <div className="kanban-grid-3">
                 {activeSub.beginner?.topics?.length ? (
-                  <div className="kanban-col">
-                    <h3>Beginner</h3>
+                  <KanbanSection title="Beginner">
                     {activeSub.beginner.topics.map((t, i) => (
                       <div key={i} className="kanban-item"><h4>{t}</h4></div>
                     ))}
                     {activeSub.beginner.skills?.map((s, i) => (
                       <div key={`skill-${i}`} className="kanban-item"><span className="kanban-tag">Skill</span><h4>{s}</h4></div>
                     ))}
-                  </div>
+                  </KanbanSection>
                 ) : null}
 
                 {activeSub.intermediate?.concepts?.length ? (
-                  <div className="kanban-col">
-                    <h3>Intermediate</h3>
+                  <KanbanSection title="Intermediate">
                     {activeSub.intermediate.concepts.map((c, i) => (
                       <div key={i} className="kanban-item"><h4>{c}</h4></div>
                     ))}
                     {activeSub.intermediate.tools?.map((t, i) => (
                       <div key={`tool-${i}`} className="kanban-item"><span className="kanban-tag">Tool</span><h4>{t}</h4></div>
                     ))}
-                  </div>
+                  </KanbanSection>
                 ) : null}
 
                 {activeSub.advanced?.skills?.length ? (
-                  <div className="kanban-col">
-                    <h3>Advanced</h3>
+                  <KanbanSection title="Advanced">
                     {activeSub.advanced.skills.map((s, i) => (
                       <div key={i} className="kanban-item"><h4>{s}</h4></div>
                     ))}
                     {activeSub.advanced.research?.map((r, i) => (
                       <div key={`res-${i}`} className="kanban-item"><span className="kanban-tag">Research</span><h4>{r}</h4></div>
                     ))}
-                  </div>
+                  </KanbanSection>
                 ) : null}
               </div>
 
               <div className="kanban-grid-2">
                 {activeSub.projects?.length ? (
-                  <div className="kanban-col">
-                    <h3>Projects</h3>
+                  <KanbanSection title="Projects">
                     {activeSub.projects.map((p, i) => (
                       <div key={i} className="kanban-item"><h4>{p}</h4></div>
                     ))}
-                  </div>
+                  </KanbanSection>
                 ) : null}
 
                 {activeSub.tools?.length ? (
-                  <div className="kanban-col">
-                    <h3>Tools</h3>
+                  <KanbanSection title="Tools">
                     {activeSub.tools.map((t, i) => (
                       <div key={i} className="kanban-item"><h4>{t}</h4></div>
                     ))}
-                  </div>
+                  </KanbanSection>
                 ) : null}
               </div>
 
               <div className="kanban-grid-2">
                 {activeSub.resources?.length ? (
-                  <div className="kanban-col">
-                    <h3>Resources</h3>
+                  <KanbanSection title="Resources">
                     {activeSub.resources.map((r, i) => {
                       const isObj = typeof r === 'object' && r !== null;
                       return (
@@ -387,16 +397,15 @@ function AppContent() {
                         </div>
                       );
                     })}
-                  </div>
+                  </KanbanSection>
                 ) : null}
 
                 {activeSub.careers?.length ? (
-                  <div className="kanban-col">
-                    <h3>Careers</h3>
+                  <KanbanSection title="Careers">
                     {activeSub.careers.map((c, i) => (
                       <div key={i} className="kanban-item"><h4>{c}</h4></div>
                     ))}
-                  </div>
+                  </KanbanSection>
                 ) : null}
               </div>
 
