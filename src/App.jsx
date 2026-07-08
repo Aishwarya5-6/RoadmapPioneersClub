@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { BrowserRouter, useNavigate, useLocation } from 'react-router-dom';
 import { ROADMAP_DATA } from './data';
 import './styles/global.css';
 import GridScan from './GridScan';
@@ -25,10 +26,26 @@ const SearchBar = ({ query, setQuery }) => (
   </div>
 );
 
-export default function App() {
+// Generates a dynamic HSL gradient background for a given subdomain string ID
+function getBackgroundForSub(subId) {
+  if (!subId) return 'transparent';
+  let hash = 0;
+  for (let i = 0; i < subId.length; i++) hash = subId.charCodeAt(i) + ((hash << 5) - hash);
+  const hue = Math.abs(hash % 360);
+  return `linear-gradient(135deg, hsla(${hue}, 80%, 15%, 0.8) 0%, hsla(${hue + 40}, 90%, 10%, 0.95) 100%)`;
+}
+
+function AppContent() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeDomainId, setActiveDomainId] = useState(null);
-  const [activeSubId, setActiveSubId] = useState(null);
+  
+  // React Router hooks replacing local state
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Parse state from URL params
+  const pathParts = location.pathname.split('/').filter(Boolean);
+  const activeDomainId = pathParts.length > 0 ? pathParts[0] : null;
+  const activeSubId = pathParts.length > 1 ? pathParts[1] : null;
 
   const domains = useMemo(() => Object.values(ROADMAP_DATA), []);
 
@@ -88,6 +105,21 @@ export default function App() {
         />
       </div>
 
+      {/* Dynamic Subdomain Background Overlay */}
+      <div 
+         className="dynamic-bg"
+         style={{ 
+           position: 'absolute', 
+           inset: 0, 
+           zIndex: 0, 
+           background: getBackgroundForSub(activeSubId),
+           opacity: isFullScreenView ? 1 : 0,
+           transition: 'opacity 0.6s ease, background 0.6s ease',
+           pointerEvents: 'none',
+           mixBlendMode: 'overlay'
+         }} 
+      />
+
       {/* Persistent Breadcrumb / Header */}
       <div className="header-bar">
         {isOrbitView ? (
@@ -95,9 +127,9 @@ export default function App() {
         ) : (
           <button className="back-btn" onClick={() => {
             if (activeSubId) {
-              setActiveSubId(null);
+              navigate(`/${activeDomainId}`);
             } else {
-              setActiveDomainId(null);
+              navigate('/');
             }
           }}>
             ← Back
@@ -127,7 +159,7 @@ export default function App() {
                 style={{ '--angle': `${angle}deg` }}
                 onClick={() => {
                   if (isOrbitView) {
-                    setActiveDomainId(domain.id);
+                    navigate(`/${domain.id}`);
                     setSearchQuery(''); // clear search on dive in
                   }
                 }}
@@ -152,7 +184,7 @@ export default function App() {
               key={sub.id}
               className="subdomain-pill"
               style={{ animationDelay: `${i * 0.05}s` }}
-              onClick={() => setActiveSubId(sub.id)}
+              onClick={() => navigate(`/${activeDomainId}/${sub.id}`)}
             >
               {sub.name}
             </button>
@@ -162,7 +194,7 @@ export default function App() {
 
       {/* 3. FULL-SCREEN KANBAN */}
       <div className={isFullScreenView ? 'full-screen-kanban active' : 'full-screen-kanban'}>
-        {isFullScreenView ? (
+        {isFullScreenView && activeSub ? (
           <>
             <h1>{activeSub.name}</h1>
             <div className="kanban-scroll">
@@ -218,5 +250,13 @@ export default function App() {
       </div>
 
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   );
 }
