@@ -139,7 +139,7 @@ h1, h2, h3, h4, h5, h6 {
   backdrop-filter: blur(16px);
   padding: 1.5rem 2rem;
   border-radius: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 3px solid var(--charcoal-ink);
   box-shadow: 0 10px 40px rgba(15, 23, 42, 0.08);
 }
 .hero-center h1 {
@@ -169,7 +169,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 1.2rem 2rem 1.2rem 3.8rem;
   font-size: 1.1rem;
   font-family: var(--font-body);
-  border: 1px solid var(--whisper-border);
+  border: 3px solid var(--charcoal-ink);
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
@@ -187,7 +187,7 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   border-radius: 1rem;
-  border: 1px solid var(--whisper-border);
+  border: 3px solid var(--charcoal-ink);
   box-shadow: 0 10px 40px rgba(15, 23, 42, 0.1);
   overflow: hidden;
   z-index: 20;
@@ -203,7 +203,7 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   align-items: center;
   gap: 1rem;
-  border-bottom: 1px solid var(--whisper-border);
+  border-bottom: 3px solid var(--charcoal-ink);
   transition: background 0.2s ease;
 }
 .search-result-item:last-child {
@@ -264,7 +264,7 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   width: 320px;
   background: var(--pure-surface);
-  border: 2px solid var(--muted-steel);
+  border: 3px solid var(--charcoal-ink);
   border-radius: var(--radius);
   padding: 1.5rem;
   cursor: pointer;
@@ -307,7 +307,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 80vh;
   background: var(--glass-pane);
   backdrop-filter: blur(24px);
-  border: 1px solid var(--pure-surface);
+  border: 3px solid var(--charcoal-ink);
   border-radius: 2rem;
   padding: 4rem;
   box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1);
@@ -352,7 +352,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .subdomain-pill {
   background: var(--pure-surface);
-  border: 1px solid var(--whisper-border);
+  border: 3px solid var(--charcoal-ink);
   padding: 1.2rem 2rem;
   border-radius: 9999px;
   font-family: var(--font-display);
@@ -414,7 +414,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .kanban-intro-box {
   background: var(--pure-surface);
-  border: 1px solid var(--whisper-border);
+  border: 3px solid var(--charcoal-ink);
   border-radius: 1.5rem;
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(13, 82, 191, 0.05);
@@ -442,7 +442,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .kanban-col {
   background: var(--pure-surface);
-  border: 1px solid var(--whisper-border);
+  border: 3px solid var(--charcoal-ink);
   border-radius: 1.5rem;
   padding: 1.5rem;
   display: flex;
@@ -453,7 +453,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 1.4rem;
   color: var(--pioneers-royal);
   padding-bottom: 1rem;
-  border-bottom: 2px solid var(--whisper-border);
+  border-bottom: 3px solid var(--charcoal-ink);
   cursor: default;
   display: flex;
   justify-content: space-between;
@@ -469,6 +469,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .kanban-item {
   background: var(--canvas-blueprint);
+  border: 3px solid var(--charcoal-ink);
   border-radius: 1rem;
   padding: 1.25rem;
 }
