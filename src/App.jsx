@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { ROADMAP_DATA } from './data';
 import './styles/global.css';
+import GridScan from './GridScan';
 
 // SVG Icons
 const IconRocket = () => (
@@ -68,7 +69,21 @@ export default function App() {
   return (
     <div className="app-container">
       {/* Background blueprint grid */}
-      <div className={!isOrbitView ? 'blueprint-bg blurred' : 'blueprint-bg'} />
+      <div className={!isOrbitView ? 'gridscan-bg blurred' : 'gridscan-bg'}>
+        <GridScan
+          sensitivity={0.55}
+          lineThickness={0.5}
+          linesColor="#e2e8f0"
+          gridScale={0.3}
+          scanColor="#0D52BF"
+          scanOpacity={0.2}
+          enablePost
+          bloomIntensity={0.1}
+          chromaticAberration={0.0005}
+          noiseIntensity={0.005}
+          enableWebcam={false}
+        />
+      </div>
 
       {/* Persistent Breadcrumb / Header */}
       <div className="header-bar">
