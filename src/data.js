@@ -6,7 +6,7 @@
    plain JS/JSON below — no need to touch script.js or index.html.
    ============================================================ */
 
-const ROADMAP_DATA = {
+export const ROADMAP_DATA = {
   engineering: {
     id: "engineering",
     name: "Engineering & Technology",
@@ -42,11 +42,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Hugging Face", "Google Colab", "Docker"],
         resources: [
-          "Andrew Ng's Machine Learning course (Coursera, free audit)",
-          "fast.ai — Practical Deep Learning for Coders",
-          "Kaggle Learn micro-courses & competitions",
-          "freeCodeCamp Machine Learning with Python",
-          "3Blue1Brown Neural Networks YouTube series"
+          { name: "Andrew Ng's Machine Learning course (Coursera, free audit)", url: "https://www.coursera.org/specializations/machine-learning-introduction" },
+          { name: "fast.ai — Practical Deep Learning for Coders", url: "https://course.fast.ai/" },
+          { name: "Kaggle Learn micro-courses & competitions", url: "https://www.kaggle.com/learn" },
+          { name: "freeCodeCamp Machine Learning with Python", url: "https://www.google.com/search?q=freeCodeCamp%20Machine%20Learning%20with%20Python" },
+          { name: "3Blue1Brown Neural Networks YouTube series", url: "https://www.google.com/search?q=3Blue1Brown%20Neural%20Networks%20YouTube%20series" }
         ],
         careers: ["Machine Learning Engineer", "Data Scientist", "AI Research Engineer", "NLP Engineer", "Computer Vision Engineer"]
       },
@@ -79,11 +79,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["Git & GitHub", "VS Code", "React", "Node.js", "MongoDB", "Docker", "Postman"],
         resources: [
-          "freeCodeCamp full curriculum",
-          "The Odin Project (full stack web dev)",
-          "CS50 by Harvard (edX, free)",
-          "roadmap.sh developer roadmaps",
-          "MDN Web Docs for web fundamentals"
+          { name: "freeCodeCamp full curriculum", url: "https://www.freecodecamp.org/" },
+          { name: "The Odin Project (full stack web dev)", url: "https://www.theodinproject.com/" },
+          { name: "CS50 by Harvard (edX, free)", url: "https://pll.harvard.edu/course/cs50-introduction-computer-science" },
+          { name: "roadmap.sh developer roadmaps", url: "https://roadmap.sh/" },
+          { name: "MDN Web Docs for web fundamentals", url: "https://developer.mozilla.org/en-US/docs/Learn" }
         ],
         careers: ["Full Stack Developer", "Frontend Developer", "Backend Developer", "Software Engineer", "Mobile App Developer"]
       },
@@ -116,11 +116,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["Python", "Pandas", "Power BI", "Tableau", "SQL", "Jupyter Notebook", "Apache Spark"],
         resources: [
-          "Kaggle Learn (free micro-courses)",
-          "Google Data Analytics Certificate (Coursera)",
-          "StatQuest YouTube channel",
-          "Khan Academy Statistics & Probability",
-          "Mode Analytics SQL tutorial"
+          { name: "Kaggle Learn (free micro-courses)", url: "https://www.google.com/search?q=Kaggle%20Learn%20(free%20micro-courses)" },
+          { name: "Google Data Analytics Certificate (Coursera)", url: "https://www.google.com/search?q=Google%20Data%20Analytics%20Certificate%20(Coursera)" },
+          { name: "StatQuest YouTube channel", url: "https://www.youtube.com/c/joshstarmer" },
+          { name: "Khan Academy Statistics & Probability", url: "https://www.khanacademy.org/math/statistics-probability" },
+          { name: "Mode Analytics SQL tutorial", url: "https://www.google.com/search?q=Mode%20Analytics%20SQL%20tutorial" }
         ],
         careers: ["Data Analyst", "Data Scientist", "Business Intelligence Analyst", "Data Engineer", "Analytics Consultant"]
       },
@@ -153,11 +153,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["Kali Linux", "Wireshark", "Burp Suite", "Metasploit", "Nmap", "OWASP ZAP"],
         resources: [
-          "TryHackMe (free beginner rooms)",
-          "Hack The Box Academy",
-          "OWASP official documentation",
-          "Cybrary free courses",
-          "Professor Messer Security+ videos"
+          { name: "TryHackMe (free beginner rooms)", url: "https://tryhackme.com/" },
+          { name: "Hack The Box Academy", url: "https://academy.hackthebox.com/" },
+          { name: "OWASP official documentation", url: "https://www.google.com/search?q=OWASP%20official%20documentation" },
+          { name: "Cybrary free courses", url: "https://www.google.com/search?q=Cybrary%20free%20courses" },
+          { name: "Professor Messer Security+ videos", url: "https://www.google.com/search?q=Professor%20Messer%20Security%2B%20videos" }
         ],
         careers: ["Security Analyst", "Penetration Tester", "SOC Analyst", "Security Engineer", "Digital Forensics Investigator"]
       },
@@ -190,11 +190,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["AWS", "Microsoft Azure", "Google Cloud Platform", "Docker", "Kubernetes", "Terraform", "Jenkins"],
         resources: [
-          "AWS Cloud Practitioner Essentials (free)",
-          "Microsoft Learn Azure Fundamentals",
-          "Google Cloud Skills Boost free labs",
-          "KodeKloud free Kubernetes course",
-          "freeCodeCamp DevOps & Cloud tutorials"
+          { name: "AWS Cloud Practitioner Essentials (free)", url: "https://aws.amazon.com/training/digital/aws-cloud-practitioner-essentials/" },
+          { name: "Microsoft Learn Azure Fundamentals", url: "https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/" },
+          { name: "Google Cloud Skills Boost free labs", url: "https://www.google.com/search?q=Google%20Cloud%20Skills%20Boost%20free%20labs" },
+          { name: "KodeKloud free Kubernetes course", url: "https://www.google.com/search?q=KodeKloud%20free%20Kubernetes%20course" },
+          { name: "freeCodeCamp DevOps & Cloud tutorials", url: "https://www.google.com/search?q=freeCodeCamp%20DevOps%20%26%20Cloud%20tutorials" }
         ],
         careers: ["Cloud Engineer", "DevOps Engineer", "Site Reliability Engineer", "Cloud Architect", "Cloud Security Engineer"]
       },
@@ -227,11 +227,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["Arduino IDE", "Raspberry Pi", "MQTT", "Blynk / Node-RED", "KiCad", "Proteus"],
         resources: [
-          "Arduino official tutorials",
-          "Raspberry Pi Foundation free projects",
-          "Coursera Introduction to IoT (free audit)",
-          "Random Nerd Tutorials (ESP32/ESP8266)",
-          "YouTube: GreatScott! & Andreas Spiess"
+          { name: "Arduino official tutorials", url: "https://docs.arduino.cc/tutorials/" },
+          { name: "Raspberry Pi Foundation free projects", url: "https://projects.raspberrypi.org/en/" },
+          { name: "Coursera Introduction to IoT (free audit)", url: "https://www.google.com/search?q=Coursera%20Introduction%20to%20IoT%20(free%20audit)" },
+          { name: "Random Nerd Tutorials (ESP32/ESP8266)", url: "https://www.google.com/search?q=Random%20Nerd%20Tutorials%20(ESP32%2FESP8266)" },
+          { name: "YouTube: GreatScott! & Andreas Spiess", url: "https://www.google.com/search?q=YouTube%3A%20GreatScott!%20%26%20Andreas%20Spiess" }
         ],
         careers: ["Embedded Systems Engineer", "IoT Developer", "Hardware Design Engineer", "Robotics Engineer", "Firmware Engineer"]
       },
@@ -264,11 +264,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["AutoCAD", "SolidWorks", "ANSYS", "MATLAB", "Fusion 360", "CNC machines / 3D printers"],
         resources: [
-          "NPTEL Mechanical Engineering courses (free)",
-          "MIT OpenCourseWare Mechanical Engineering",
-          "Coursera Introduction to Engineering Mechanics",
-          "YouTube: Learn Engineering channel",
-          "GrabCAD community for CAD models"
+          { name: "NPTEL Mechanical Engineering courses (free)", url: "https://www.google.com/search?q=NPTEL%20Mechanical%20Engineering%20courses%20(free)" },
+          { name: "MIT OpenCourseWare Mechanical Engineering", url: "https://www.google.com/search?q=MIT%20OpenCourseWare%20Mechanical%20Engineering" },
+          { name: "Coursera Introduction to Engineering Mechanics", url: "https://www.google.com/search?q=Coursera%20Introduction%20to%20Engineering%20Mechanics" },
+          { name: "YouTube: Learn Engineering channel", url: "https://www.google.com/search?q=YouTube%3A%20Learn%20Engineering%20channel" },
+          { name: "GrabCAD community for CAD models", url: "https://www.google.com/search?q=GrabCAD%20community%20for%20CAD%20models" }
         ],
         careers: ["Design Engineer", "Manufacturing Engineer", "Automotive Engineer", "Robotics Engineer", "R&D Engineer"]
       },
@@ -301,11 +301,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["AutoCAD", "STAAD.Pro", "Revit/BIM", "MS Project", "Primavera", "Total Station"],
         resources: [
-          "NPTEL Civil Engineering free courses",
-          "Coursera Construction Management specialization",
-          "YouTube: The Efficient Engineer",
-          "IS Codes (Bureau of Indian Standards) references",
-          "Autodesk free student licenses & tutorials"
+          { name: "NPTEL Civil Engineering free courses", url: "https://www.google.com/search?q=NPTEL%20Civil%20Engineering%20free%20courses" },
+          { name: "Coursera Construction Management specialization", url: "https://www.google.com/search?q=Coursera%20Construction%20Management%20specialization" },
+          { name: "YouTube: The Efficient Engineer", url: "https://www.google.com/search?q=YouTube%3A%20The%20Efficient%20Engineer" },
+          { name: "IS Codes (Bureau of Indian Standards) references", url: "https://www.google.com/search?q=IS%20Codes%20(Bureau%20of%20Indian%20Standards)%20references" },
+          { name: "Autodesk free student licenses & tutorials", url: "https://www.google.com/search?q=Autodesk%20free%20student%20licenses%20%26%20tutorials" }
         ],
         careers: ["Structural Engineer", "Site Engineer", "Construction Manager", "Urban Infrastructure Planner", "Geotechnical Engineer"]
       },
@@ -338,11 +338,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["MATLAB/Simulink", "ETAP", "PSpice", "Arduino", "AutoCAD Electrical"],
         resources: [
-          "NPTEL Electrical Engineering courses (free)",
-          "MIT OpenCourseWare Circuits & Electronics",
-          "Coursera Power Systems specialization",
-          "YouTube: ALL ABOUT ELECTRONICS",
-          "All About Circuits online textbook"
+          { name: "NPTEL Electrical Engineering courses (free)", url: "https://www.google.com/search?q=NPTEL%20Electrical%20Engineering%20courses%20(free)" },
+          { name: "MIT OpenCourseWare Circuits & Electronics", url: "https://www.google.com/search?q=MIT%20OpenCourseWare%20Circuits%20%26%20Electronics" },
+          { name: "Coursera Power Systems specialization", url: "https://www.google.com/search?q=Coursera%20Power%20Systems%20specialization" },
+          { name: "YouTube: ALL ABOUT ELECTRONICS", url: "https://www.google.com/search?q=YouTube%3A%20ALL%20ABOUT%20ELECTRONICS" },
+          { name: "All About Circuits online textbook", url: "https://www.google.com/search?q=All%20About%20Circuits%20online%20textbook" }
         ],
         careers: ["Electrical Design Engineer", "Power Systems Engineer", "Control Systems Engineer", "Renewable Energy Engineer", "Instrumentation Engineer"]
       }
@@ -384,11 +384,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["Google Analytics", "Canva", "HubSpot", "Meta Ads Manager", "SEMrush/Ahrefs"],
         resources: [
-          "Google Digital Garage (free certification)",
-          "HubSpot Academy free courses",
-          "Coursera Digital Marketing Specialization (free audit)",
-          "Neil Patel's marketing blog",
-          "YouTube: Think Media & Simplilearn Marketing"
+          { name: "Google Digital Garage (free certification)", url: "https://www.google.com/search?q=Google%20Digital%20Garage%20(free%20certification)" },
+          { name: "HubSpot Academy free courses", url: "https://www.google.com/search?q=HubSpot%20Academy%20free%20courses" },
+          { name: "Coursera Digital Marketing Specialization (free audit)", url: "https://www.google.com/search?q=Coursera%20Digital%20Marketing%20Specialization%20(free%20audit)" },
+          { name: "Neil Patel's marketing blog", url: "https://www.google.com/search?q=Neil%20Patel's%20marketing%20blog" },
+          { name: "YouTube: Think Media & Simplilearn Marketing", url: "https://www.google.com/search?q=YouTube%3A%20Think%20Media%20%26%20Simplilearn%20Marketing" }
         ],
         careers: ["Digital Marketing Executive", "Brand Manager", "SEO Specialist", "Social Media Manager", "Marketing Analyst"]
       },
@@ -421,11 +421,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["Excel", "Bloomberg/Reuters basics", "Power BI", "Tally (accounting)", "Financial modeling templates"],
         resources: [
-          "Corporate Finance Institute (CFI) free resources",
-          "Khan Academy Finance & Capital Markets",
-          "NSE/BSE investor education modules (India)",
-          "Coursera Financial Markets by Yale (free audit)",
-          "Investopedia articles & tutorials"
+          { name: "Corporate Finance Institute (CFI) free resources", url: "https://www.google.com/search?q=Corporate%20Finance%20Institute%20(CFI)%20free%20resources" },
+          { name: "Khan Academy Finance & Capital Markets", url: "https://www.google.com/search?q=Khan%20Academy%20Finance%20%26%20Capital%20Markets" },
+          { name: "NSE/BSE investor education modules (India)", url: "https://www.google.com/search?q=NSE%2FBSE%20investor%20education%20modules%20(India)" },
+          { name: "Coursera Financial Markets by Yale (free audit)", url: "https://www.google.com/search?q=Coursera%20Financial%20Markets%20by%20Yale%20(free%20audit)" },
+          { name: "Investopedia articles & tutorials", url: "https://www.google.com/search?q=Investopedia%20articles%20%26%20tutorials" }
         ],
         careers: ["Financial Analyst", "Investment Banking Analyst", "Equity Research Analyst", "Financial Planner", "Corporate Finance Associate"]
       },
@@ -458,11 +458,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["Zoho People", "LinkedIn Recruiter", "MS Excel", "Google Workspace", "SAP SuccessFactors basics"],
         resources: [
-          "SHRM free HR resources",
-          "Coursera Human Resource Management specialization (free audit)",
-          "HR Certification Institute (HRCI) study material",
-          "LinkedIn Learning HR courses",
-          "YouTube: HR Bartender & AIHR channel"
+          { name: "SHRM free HR resources", url: "https://www.google.com/search?q=SHRM%20free%20HR%20resources" },
+          { name: "Coursera Human Resource Management specialization (free audit)", url: "https://www.google.com/search?q=Coursera%20Human%20Resource%20Management%20specialization%20(free%20audit)" },
+          { name: "HR Certification Institute (HRCI) study material", url: "https://www.google.com/search?q=HR%20Certification%20Institute%20(HRCI)%20study%20material" },
+          { name: "LinkedIn Learning HR courses", url: "https://www.google.com/search?q=LinkedIn%20Learning%20HR%20courses" },
+          { name: "YouTube: HR Bartender & AIHR channel", url: "https://www.google.com/search?q=YouTube%3A%20HR%20Bartender%20%26%20AIHR%20channel" }
         ],
         careers: ["HR Executive", "Talent Acquisition Specialist", "HR Business Partner", "Compensation & Benefits Analyst", "Learning & Development Specialist"]
       },
@@ -495,11 +495,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["Business Model Canvas", "Figma/Canva", "Notion", "Google Analytics", "Pitch deck templates"],
         resources: [
-          "Y Combinator Startup School (free)",
-          "NPTEL Entrepreneurship courses",
-          "Coursera Entrepreneurship Specialization (free audit)",
-          "Startup India learning resources",
-          "The Lean Startup by Eric Ries (book)"
+          { name: "Y Combinator Startup School (free)", url: "https://www.startupschool.org/" },
+          { name: "NPTEL Entrepreneurship courses", url: "https://www.google.com/search?q=NPTEL%20Entrepreneurship%20courses" },
+          { name: "Coursera Entrepreneurship Specialization (free audit)", url: "https://www.google.com/search?q=Coursera%20Entrepreneurship%20Specialization%20(free%20audit)" },
+          { name: "Startup India learning resources", url: "https://www.google.com/search?q=Startup%20India%20learning%20resources" },
+          { name: "The Lean Startup by Eric Ries (book)", url: "https://theleanstartup.com/" }
         ],
         careers: ["Startup Founder", "Business Development Manager", "Product Manager", "Innovation Consultant", "Venture Capital Analyst"]
       },
@@ -532,11 +532,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["Power BI", "Tableau", "SQL", "Excel", "Python (basic for analytics)"],
         resources: [
-          "Google Data Analytics Certificate (Coursera, free audit)",
-          "Coursera Business Analytics Specialization",
-          "Khan Academy Statistics",
-          "Microsoft Power BI free learning path",
-          "Kaggle datasets for business analytics practice"
+          { name: "Google Data Analytics Certificate (Coursera, free audit)", url: "https://www.google.com/search?q=Google%20Data%20Analytics%20Certificate%20(Coursera%2C%20free%20audit)" },
+          { name: "Coursera Business Analytics Specialization", url: "https://www.google.com/search?q=Coursera%20Business%20Analytics%20Specialization" },
+          { name: "Khan Academy Statistics", url: "https://www.google.com/search?q=Khan%20Academy%20Statistics" },
+          { name: "Microsoft Power BI free learning path", url: "https://www.google.com/search?q=Microsoft%20Power%20BI%20free%20learning%20path" },
+          { name: "Kaggle datasets for business analytics practice", url: "https://www.google.com/search?q=Kaggle%20datasets%20for%20business%20analytics%20practice" }
         ],
         careers: ["Business Analyst", "Data Analyst", "BI Developer", "Strategy Analyst", "Management Consultant"]
       },
@@ -569,11 +569,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["MS Project", "SAP (basics)", "Lucidchart", "Excel", "Six Sigma tools"],
         resources: [
-          "Coursera Operations Management Specialization (free audit)",
-          "NPTEL Supply Chain Management courses",
-          "ASQ (American Society for Quality) free resources",
-          "LinkedIn Learning Lean Six Sigma courses",
-          "MIT OpenCourseWare Operations Management"
+          { name: "Coursera Operations Management Specialization (free audit)", url: "https://www.google.com/search?q=Coursera%20Operations%20Management%20Specialization%20(free%20audit)" },
+          { name: "NPTEL Supply Chain Management courses", url: "https://www.google.com/search?q=NPTEL%20Supply%20Chain%20Management%20courses" },
+          { name: "ASQ (American Society for Quality) free resources", url: "https://www.google.com/search?q=ASQ%20(American%20Society%20for%20Quality)%20free%20resources" },
+          { name: "LinkedIn Learning Lean Six Sigma courses", url: "https://www.google.com/search?q=LinkedIn%20Learning%20Lean%20Six%20Sigma%20courses" },
+          { name: "MIT OpenCourseWare Operations Management", url: "https://www.google.com/search?q=MIT%20OpenCourseWare%20Operations%20Management" }
         ],
         careers: ["Operations Manager", "Supply Chain Analyst", "Logistics Manager", "Process Improvement Consultant", "Production Planner"]
       }
@@ -615,11 +615,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["AutoCAD", "SketchUp", "Revit", "Lumion", "Adobe Creative Suite"],
         resources: [
-          "NPTEL Architecture courses (free)",
-          "ArchDaily for design inspiration & case studies",
-          "YouTube: The B1M & Balkrishna Doshi lectures",
-          "Coursera Introduction to Architecture (free audit)",
-          "Autodesk free student software & tutorials"
+          { name: "NPTEL Architecture courses (free)", url: "https://www.google.com/search?q=NPTEL%20Architecture%20courses%20(free)" },
+          { name: "ArchDaily for design inspiration & case studies", url: "https://www.archdaily.com/" },
+          { name: "YouTube: The B1M & Balkrishna Doshi lectures", url: "https://www.google.com/search?q=YouTube%3A%20The%20B1M%20%26%20Balkrishna%20Doshi%20lectures" },
+          { name: "Coursera Introduction to Architecture (free audit)", url: "https://www.google.com/search?q=Coursera%20Introduction%20to%20Architecture%20(free%20audit)" },
+          { name: "Autodesk free student software & tutorials", url: "https://www.google.com/search?q=Autodesk%20free%20student%20software%20%26%20tutorials" }
         ],
         careers: ["Architect", "Design Architect", "Urban Designer", "Architectural Visualizer", "Design Consultant"]
       },
@@ -652,11 +652,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["AutoCAD", "SketchUp", "3ds Max", "V-Ray", "Photoshop"],
         resources: [
-          "YouTube: SketchUp free tutorials",
-          "Coursera Interior Design Specialization (free audit)",
-          "Pinterest & Houzz for design inspiration",
-          "NPTEL courses on Interior Design basics",
-          "Autodesk & SketchUp free student licenses"
+          { name: "YouTube: SketchUp free tutorials", url: "https://www.google.com/search?q=YouTube%3A%20SketchUp%20free%20tutorials" },
+          { name: "Coursera Interior Design Specialization (free audit)", url: "https://www.google.com/search?q=Coursera%20Interior%20Design%20Specialization%20(free%20audit)" },
+          { name: "Pinterest & Houzz for design inspiration", url: "https://www.google.com/search?q=Pinterest%20%26%20Houzz%20for%20design%20inspiration" },
+          { name: "NPTEL courses on Interior Design basics", url: "https://www.google.com/search?q=NPTEL%20courses%20on%20Interior%20Design%20basics" },
+          { name: "Autodesk & SketchUp free student licenses", url: "https://www.google.com/search?q=Autodesk%20%26%20SketchUp%20free%20student%20licenses" }
         ],
         careers: ["Interior Designer", "Space Planner", "Furniture Designer", "3D Visualizer", "Design Consultant"]
       },
@@ -689,11 +689,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["QGIS", "ArcGIS", "AutoCAD", "SketchUp", "Excel/Power BI for demographic analysis"],
         resources: [
-          "Coursera City Planning courses (free audit)",
-          "NPTEL Urban Planning courses",
-          "QGIS free official tutorials",
-          "Strong Towns blog & resources",
-          "UN-Habitat free publications on urban development"
+          { name: "Coursera City Planning courses (free audit)", url: "https://www.google.com/search?q=Coursera%20City%20Planning%20courses%20(free%20audit)" },
+          { name: "NPTEL Urban Planning courses", url: "https://www.google.com/search?q=NPTEL%20Urban%20Planning%20courses" },
+          { name: "QGIS free official tutorials", url: "https://www.google.com/search?q=QGIS%20free%20official%20tutorials" },
+          { name: "Strong Towns blog & resources", url: "https://www.strongtowns.org/" },
+          { name: "UN-Habitat free publications on urban development", url: "https://www.google.com/search?q=UN-Habitat%20free%20publications%20on%20urban%20development" }
         ],
         careers: ["Urban Planner", "GIS Analyst", "Transportation Planner", "Policy Analyst", "Urban Designer"]
       },
@@ -726,11 +726,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["Revit", "IES-VE", "Green Building Studio", "AutoCAD", "SketchUp"],
         resources: [
-          "USGBC (LEED) free learning resources",
-          "GRIHA Council free study material (India)",
-          "Coursera Sustainable Building Design courses (free audit)",
-          "YouTube: Sustainability by Design",
-          "NPTEL Green Building courses"
+          { name: "USGBC (LEED) free learning resources", url: "https://www.google.com/search?q=USGBC%20(LEED)%20free%20learning%20resources" },
+          { name: "GRIHA Council free study material (India)", url: "https://www.google.com/search?q=GRIHA%20Council%20free%20study%20material%20(India)" },
+          { name: "Coursera Sustainable Building Design courses (free audit)", url: "https://www.google.com/search?q=Coursera%20Sustainable%20Building%20Design%20courses%20(free%20audit)" },
+          { name: "YouTube: Sustainability by Design", url: "https://www.google.com/search?q=YouTube%3A%20Sustainability%20by%20Design" },
+          { name: "NPTEL Green Building courses", url: "https://www.google.com/search?q=NPTEL%20Green%20Building%20courses" }
         ],
         careers: ["Sustainable Design Architect", "Green Building Consultant", "Energy Analyst", "LEED/GRIHA Consultant", "Environmental Design Specialist"]
       },
@@ -763,11 +763,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["Blender", "3ds Max", "SketchUp", "V-Ray", "Unreal Engine/Unity (for real-time viz)"],
         resources: [
-          "Blender Guru free tutorials (YouTube)",
-          "Blender official documentation & free courses",
-          "CG Cookie free lessons",
-          "YouTube: Grant Abbitt (Blender for beginners)",
-          "Sketchfab community models for reference"
+          { name: "Blender Guru free tutorials (YouTube)", url: "https://www.google.com/search?q=Blender%20Guru%20free%20tutorials%20(YouTube)" },
+          { name: "Blender official documentation & free courses", url: "https://www.google.com/search?q=Blender%20official%20documentation%20%26%20free%20courses" },
+          { name: "CG Cookie free lessons", url: "https://www.google.com/search?q=CG%20Cookie%20free%20lessons" },
+          { name: "YouTube: Grant Abbitt (Blender for beginners)", url: "https://www.google.com/search?q=YouTube%3A%20Grant%20Abbitt%20(Blender%20for%20beginners)" },
+          { name: "Sketchfab community models for reference", url: "https://www.google.com/search?q=Sketchfab%20community%20models%20for%20reference" }
         ],
         careers: ["3D Visualizer", "Architectural Animator", "Game Asset Artist", "VR/AR Content Creator", "Product Visualization Designer"]
       }
@@ -809,11 +809,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["Micromedex", "Lexicomp", "Electronic Health Records", "Clinical guidelines databases", "Drug interaction checkers"],
         resources: [
-          "WHO Essential Medicines List & guidelines (free)",
-          "NPTEL Clinical Pharmacy courses",
-          "Coursera Clinical Pharmacology courses (free audit)",
-          "Medscape free clinical resources",
-          "PubMed for research articles"
+          { name: "WHO Essential Medicines List & guidelines (free)", url: "https://www.google.com/search?q=WHO%20Essential%20Medicines%20List%20%26%20guidelines%20(free)" },
+          { name: "NPTEL Clinical Pharmacy courses", url: "https://www.google.com/search?q=NPTEL%20Clinical%20Pharmacy%20courses" },
+          { name: "Coursera Clinical Pharmacology courses (free audit)", url: "https://www.google.com/search?q=Coursera%20Clinical%20Pharmacology%20courses%20(free%20audit)" },
+          { name: "Medscape free clinical resources", url: "https://www.google.com/search?q=Medscape%20free%20clinical%20resources" },
+          { name: "PubMed for research articles", url: "https://www.google.com/search?q=PubMed%20for%20research%20articles" }
         ],
         careers: ["Clinical Pharmacist", "Hospital Pharmacist", "Medication Therapy Manager", "Pharmacovigilance Associate", "Clinical Research Associate"]
       },
@@ -846,11 +846,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["HPLC", "ChemDraw", "AutoDock (molecular docking)", "SPSS", "Mendeley/Zotero"],
         resources: [
-          "PubMed & Google Scholar for research papers",
-          "NPTEL Pharmaceutical Sciences courses",
-          "Coursera Drug Discovery courses (free audit)",
-          "ResearchGate for connecting with researchers",
-          "RCSB Protein Data Bank for structural research"
+          { name: "PubMed & Google Scholar for research papers", url: "https://www.google.com/search?q=PubMed%20%26%20Google%20Scholar%20for%20research%20papers" },
+          { name: "NPTEL Pharmaceutical Sciences courses", url: "https://www.google.com/search?q=NPTEL%20Pharmaceutical%20Sciences%20courses" },
+          { name: "Coursera Drug Discovery courses (free audit)", url: "https://www.google.com/search?q=Coursera%20Drug%20Discovery%20courses%20(free%20audit)" },
+          { name: "ResearchGate for connecting with researchers", url: "https://www.google.com/search?q=ResearchGate%20for%20connecting%20with%20researchers" },
+          { name: "RCSB Protein Data Bank for structural research", url: "https://www.google.com/search?q=RCSB%20Protein%20Data%20Bank%20for%20structural%20research" }
         ],
         careers: ["Research Scientist", "R&D Associate", "Analytical Chemist", "Clinical Research Scientist", "Formulation Scientist"]
       },
@@ -883,11 +883,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["Dissolution testing apparatus", "DoE software (Design-Expert)", "Clinical trial databases (ClinicalTrials.gov)", "Formulation simulation tools"],
         resources: [
-          "ClinicalTrials.gov for real trial data",
-          "NPTEL Pharmaceutics courses",
-          "Coursera Clinical Trials courses (free audit)",
-          "FDA & CDSCO guidance documents (free)",
-          "WHO Good Manufacturing Practice guidelines"
+          { name: "ClinicalTrials.gov for real trial data", url: "https://www.google.com/search?q=ClinicalTrials.gov%20for%20real%20trial%20data" },
+          { name: "NPTEL Pharmaceutics courses", url: "https://www.google.com/search?q=NPTEL%20Pharmaceutics%20courses" },
+          { name: "Coursera Clinical Trials courses (free audit)", url: "https://www.google.com/search?q=Coursera%20Clinical%20Trials%20courses%20(free%20audit)" },
+          { name: "FDA & CDSCO guidance documents (free)", url: "https://www.google.com/search?q=FDA%20%26%20CDSCO%20guidance%20documents%20(free)" },
+          { name: "WHO Good Manufacturing Practice guidelines", url: "https://www.google.com/search?q=WHO%20Good%20Manufacturing%20Practice%20guidelines" }
         ],
         careers: ["Formulation Scientist", "Clinical Research Associate", "Drug Development Manager", "Regulatory Submission Specialist", "Process Development Scientist"]
       },
@@ -920,11 +920,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["eCTD software", "Regulatory databases (CDSCO, FDA, EMA portals)", "MS Office Suite", "Compliance management tools"],
         resources: [
-          "CDSCO official website & guidelines (India)",
-          "US FDA guidance documents (free)",
-          "ICH official guidelines (free)",
-          "Coursera Regulatory Affairs courses (free audit)",
-          "RAPS (Regulatory Affairs Professionals Society) resources"
+          { name: "CDSCO official website & guidelines (India)", url: "https://www.google.com/search?q=CDSCO%20official%20website%20%26%20guidelines%20(India)" },
+          { name: "US FDA guidance documents (free)", url: "https://www.google.com/search?q=US%20FDA%20guidance%20documents%20(free)" },
+          { name: "ICH official guidelines (free)", url: "https://www.google.com/search?q=ICH%20official%20guidelines%20(free)" },
+          { name: "Coursera Regulatory Affairs courses (free audit)", url: "https://www.google.com/search?q=Coursera%20Regulatory%20Affairs%20courses%20(free%20audit)" },
+          { name: "RAPS (Regulatory Affairs Professionals Society) resources", url: "https://www.google.com/search?q=RAPS%20(Regulatory%20Affairs%20Professionals%20Society)%20resources" }
         ],
         careers: ["Regulatory Affairs Associate", "Regulatory Affairs Manager", "Compliance Officer", "Quality Assurance Specialist", "Drug Safety Associate"]
       },
@@ -957,11 +957,11 @@ const ROADMAP_DATA = {
         ],
         tools: ["SAP (Pharma module)", "QMS software", "MS Excel/Power BI", "Batch record systems"],
         resources: [
-          "WHO GMP guidelines (free)",
-          "NPTEL Pharmaceutical Industry courses",
-          "Coursera Pharma Business courses (free audit)",
-          "Pharma industry reports (IQVIA, McKinsey — free summaries)",
-          "PharmaTutor & PharmaState free articles"
+          { name: "WHO GMP guidelines (free)", url: "https://www.google.com/search?q=WHO%20GMP%20guidelines%20(free)" },
+          { name: "NPTEL Pharmaceutical Industry courses", url: "https://www.google.com/search?q=NPTEL%20Pharmaceutical%20Industry%20courses" },
+          { name: "Coursera Pharma Business courses (free audit)", url: "https://www.google.com/search?q=Coursera%20Pharma%20Business%20courses%20(free%20audit)" },
+          { name: "Pharma industry reports (IQVIA, McKinsey — free summaries)", url: "https://www.google.com/search?q=Pharma%20industry%20reports%20(IQVIA%2C%20McKinsey%20%E2%80%94%20free%20summaries)" },
+          { name: "PharmaTutor & PharmaState free articles", url: "https://www.google.com/search?q=PharmaTutor%20%26%20PharmaState%20free%20articles" }
         ],
         careers: ["Production Manager", "Quality Assurance Manager", "Pharma Business Analyst", "Supply Chain Manager", "Product Manager (Pharma)"]
       }
@@ -1008,12 +1008,12 @@ const ROADMAP_DATA = {
             ],
             tools: ["Python (Astropy, NumPy)", "Stellarium", "MATLAB", "NASA open datasets"],
             resources: [
-              "NASA's free educational resources & open data",
-              "Coursera Astronomy courses (free audit)",
-              "MIT OpenCourseWare Astrophysics",
-              "YouTube: PBS Space Time",
-              "Khan Academy Cosmology & Astronomy"
-            ],
+          { name: "NASA's free educational resources & open data", url: "https://www.google.com/search?q=NASA's%20free%20educational%20resources%20%26%20open%20data" },
+          { name: "Coursera Astronomy courses (free audit)", url: "https://www.google.com/search?q=Coursera%20Astronomy%20courses%20(free%20audit)" },
+          { name: "MIT OpenCourseWare Astrophysics", url: "https://www.google.com/search?q=MIT%20OpenCourseWare%20Astrophysics" },
+          { name: "YouTube: PBS Space Time", url: "https://www.google.com/search?q=YouTube%3A%20PBS%20Space%20Time" },
+          { name: "Khan Academy Cosmology & Astronomy", url: "https://www.google.com/search?q=Khan%20Academy%20Cosmology%20%26%20Astronomy" }
+        ],
             careers: ["Astrophysicist", "Research Scientist", "Data Scientist (Astronomy)", "Science Communicator", "Observatory Technician"]
           },
           "quantum-physics": {
@@ -1045,12 +1045,12 @@ const ROADMAP_DATA = {
             ],
             tools: ["Qiskit", "Python (QuTiP, NumPy)", "MATLAB", "Mathematica"],
             resources: [
-              "IBM Quantum Experience free learning resources",
-              "MIT OpenCourseWare Quantum Physics",
-              "Coursera Quantum Mechanics courses (free audit)",
-              "YouTube: 3Blue1Brown & minutephysics",
-              "Qiskit Textbook (free online)"
-            ],
+          { name: "IBM Quantum Experience free learning resources", url: "https://www.google.com/search?q=IBM%20Quantum%20Experience%20free%20learning%20resources" },
+          { name: "MIT OpenCourseWare Quantum Physics", url: "https://www.google.com/search?q=MIT%20OpenCourseWare%20Quantum%20Physics" },
+          { name: "Coursera Quantum Mechanics courses (free audit)", url: "https://www.google.com/search?q=Coursera%20Quantum%20Mechanics%20courses%20(free%20audit)" },
+          { name: "YouTube: 3Blue1Brown & minutephysics", url: "https://www.google.com/search?q=YouTube%3A%203Blue1Brown%20%26%20minutephysics" },
+          { name: "Qiskit Textbook (free online)", url: "https://www.google.com/search?q=Qiskit%20Textbook%20(free%20online)" }
+        ],
             careers: ["Quantum Researcher", "Quantum Computing Engineer", "Physicist", "R&D Scientist", "Academic Researcher"]
           },
           "computational-physics": {
@@ -1082,12 +1082,12 @@ const ROADMAP_DATA = {
             ],
             tools: ["Python (SciPy/NumPy)", "MATLAB", "LAMMPS", "Jupyter Notebook", "C++"],
             resources: [
-              "MIT OpenCourseWare Computational Physics",
-              "Coursera Computational Methods courses (free audit)",
-              "freeCodeCamp Python for scientific computing",
-              "YouTube: Computational physics lecture series",
-              "SciPy & NumPy official documentation"
-            ],
+          { name: "MIT OpenCourseWare Computational Physics", url: "https://www.google.com/search?q=MIT%20OpenCourseWare%20Computational%20Physics" },
+          { name: "Coursera Computational Methods courses (free audit)", url: "https://www.google.com/search?q=Coursera%20Computational%20Methods%20courses%20(free%20audit)" },
+          { name: "freeCodeCamp Python for scientific computing", url: "https://www.google.com/search?q=freeCodeCamp%20Python%20for%20scientific%20computing" },
+          { name: "YouTube: Computational physics lecture series", url: "https://www.google.com/search?q=YouTube%3A%20Computational%20physics%20lecture%20series" },
+          { name: "SciPy & NumPy official documentation", url: "https://www.google.com/search?q=SciPy%20%26%20NumPy%20official%20documentation" }
+        ],
             careers: ["Computational Physicist", "Research Scientist", "Simulation Engineer", "Data Scientist", "HPC Engineer"]
           },
           "material-science": {
@@ -1119,12 +1119,12 @@ const ROADMAP_DATA = {
             ],
             tools: ["XRD/SEM data analysis software", "MATLAB", "MatWeb database", "CAD software"],
             resources: [
-              "MIT OpenCourseWare Materials Science & Engineering",
-              "NPTEL Material Science courses (free)",
-              "Coursera Materials Science courses (free audit)",
-              "MatWeb material property database (free)",
-              "YouTube: Materials Science channel by Real Engineering"
-            ],
+          { name: "MIT OpenCourseWare Materials Science & Engineering", url: "https://www.google.com/search?q=MIT%20OpenCourseWare%20Materials%20Science%20%26%20Engineering" },
+          { name: "NPTEL Material Science courses (free)", url: "https://www.google.com/search?q=NPTEL%20Material%20Science%20courses%20(free)" },
+          { name: "Coursera Materials Science courses (free audit)", url: "https://www.google.com/search?q=Coursera%20Materials%20Science%20courses%20(free%20audit)" },
+          { name: "MatWeb material property database (free)", url: "https://www.google.com/search?q=MatWeb%20material%20property%20database%20(free)" },
+          { name: "YouTube: Materials Science channel by Real Engineering", url: "https://www.google.com/search?q=YouTube%3A%20Materials%20Science%20channel%20by%20Real%20Engineering" }
+        ],
             careers: ["Materials Scientist", "R&D Engineer", "Quality Engineer", "Nanotechnology Researcher", "Process Engineer"]
           }
         }
@@ -1163,12 +1163,12 @@ const ROADMAP_DATA = {
             ],
             tools: ["MATLAB", "Python (NumPy/SciPy)", "Mathematica", "R"],
             resources: [
-              "MIT OpenCourseWare Applied Mathematics",
-              "Khan Academy Calculus & Differential Equations",
-              "Coursera Mathematics for Engineers (free audit)",
-              "Paul's Online Math Notes (free)",
-              "3Blue1Brown Essence of Calculus/Linear Algebra series"
-            ],
+          { name: "MIT OpenCourseWare Applied Mathematics", url: "https://www.google.com/search?q=MIT%20OpenCourseWare%20Applied%20Mathematics" },
+          { name: "Khan Academy Calculus & Differential Equations", url: "https://www.google.com/search?q=Khan%20Academy%20Calculus%20%26%20Differential%20Equations" },
+          { name: "Coursera Mathematics for Engineers (free audit)", url: "https://www.google.com/search?q=Coursera%20Mathematics%20for%20Engineers%20(free%20audit)" },
+          { name: "Paul's Online Math Notes (free)", url: "https://www.google.com/search?q=Paul's%20Online%20Math%20Notes%20(free)" },
+          { name: "3Blue1Brown Essence of Calculus/Linear Algebra series", url: "https://www.google.com/search?q=3Blue1Brown%20Essence%20of%20Calculus%2FLinear%20Algebra%20series" }
+        ],
             careers: ["Applied Mathematician", "Operations Research Analyst", "Quantitative Analyst", "Research Scientist", "Data Scientist"]
           },
           statistics: {
@@ -1200,12 +1200,12 @@ const ROADMAP_DATA = {
             ],
             tools: ["R", "Python", "SPSS", "Excel", "Minitab"],
             resources: [
-              "Khan Academy Statistics & Probability",
-              "StatQuest YouTube channel",
-              "Coursera Statistics with R (free audit)",
-              "OpenIntro Statistics (free textbook)",
-              "Kaggle Learn statistics micro-courses"
-            ],
+          { name: "Khan Academy Statistics & Probability", url: "https://www.khanacademy.org/math/statistics-probability" },
+          { name: "StatQuest YouTube channel", url: "https://www.youtube.com/c/joshstarmer" },
+          { name: "Coursera Statistics with R (free audit)", url: "https://www.google.com/search?q=Coursera%20Statistics%20with%20R%20(free%20audit)" },
+          { name: "OpenIntro Statistics (free textbook)", url: "https://www.google.com/search?q=OpenIntro%20Statistics%20(free%20textbook)" },
+          { name: "Kaggle Learn statistics micro-courses", url: "https://www.google.com/search?q=Kaggle%20Learn%20statistics%20micro-courses" }
+        ],
             careers: ["Statistician", "Data Analyst", "Biostatistician", "Research Analyst", "Quantitative Researcher"]
           },
           "ai-ml-mathematics": {
@@ -1237,12 +1237,12 @@ const ROADMAP_DATA = {
             ],
             tools: ["Python (NumPy)", "MATLAB", "Jupyter Notebook", "SymPy"],
             resources: [
-              "3Blue1Brown Essence of Linear Algebra & Neural Networks",
-              "Mathematics for Machine Learning specialization (Coursera, free audit)",
-              "Khan Academy Linear Algebra & Calculus",
-              "StatQuest YouTube channel",
-              "MIT OpenCourseWare Linear Algebra (Gilbert Strang)"
-            ],
+          { name: "3Blue1Brown Essence of Linear Algebra & Neural Networks", url: "https://www.google.com/search?q=3Blue1Brown%20Essence%20of%20Linear%20Algebra%20%26%20Neural%20Networks" },
+          { name: "Mathematics for Machine Learning specialization (Coursera, free audit)", url: "https://www.google.com/search?q=Mathematics%20for%20Machine%20Learning%20specialization%20(Coursera%2C%20free%20audit)" },
+          { name: "Khan Academy Linear Algebra & Calculus", url: "https://www.google.com/search?q=Khan%20Academy%20Linear%20Algebra%20%26%20Calculus" },
+          { name: "StatQuest YouTube channel", url: "https://www.youtube.com/c/joshstarmer" },
+          { name: "MIT OpenCourseWare Linear Algebra (Gilbert Strang)", url: "https://www.google.com/search?q=MIT%20OpenCourseWare%20Linear%20Algebra%20(Gilbert%20Strang)" }
+        ],
             careers: ["ML Research Engineer", "AI Researcher", "Data Scientist", "Quantitative Researcher", "Applied Scientist"]
           },
           "financial-mathematics": {
@@ -1274,12 +1274,12 @@ const ROADMAP_DATA = {
             ],
             tools: ["Python (NumPy/Pandas)", "R", "Excel", "MATLAB", "QuantLib"],
             resources: [
-              "Coursera Financial Engineering & Risk Management (free audit)",
-              "Khan Academy Finance & Capital Markets",
-              "MIT OpenCourseWare Mathematics for Finance",
-              "QuantStart free quant finance tutorials",
-              "Investopedia for financial concepts"
-            ],
+          { name: "Coursera Financial Engineering & Risk Management (free audit)", url: "https://www.google.com/search?q=Coursera%20Financial%20Engineering%20%26%20Risk%20Management%20(free%20audit)" },
+          { name: "Khan Academy Finance & Capital Markets", url: "https://www.google.com/search?q=Khan%20Academy%20Finance%20%26%20Capital%20Markets" },
+          { name: "MIT OpenCourseWare Mathematics for Finance", url: "https://www.google.com/search?q=MIT%20OpenCourseWare%20Mathematics%20for%20Finance" },
+          { name: "QuantStart free quant finance tutorials", url: "https://www.google.com/search?q=QuantStart%20free%20quant%20finance%20tutorials" },
+          { name: "Investopedia for financial concepts", url: "https://www.google.com/search?q=Investopedia%20for%20financial%20concepts" }
+        ],
             careers: ["Quantitative Analyst", "Risk Analyst", "Financial Engineer", "Actuary", "Algorithmic Trader"]
           },
           cryptography: {
@@ -1311,12 +1311,12 @@ const ROADMAP_DATA = {
             ],
             tools: ["Python (PyCryptodome)", "OpenSSL", "CyberChef", "CryptoHack platform"],
             resources: [
-              "CryptoHack (free interactive cryptography challenges)",
-              "Coursera Cryptography I by Stanford (free audit)",
-              "Khan Academy Cryptography basics",
-              "Practical Cryptography (free online book)",
-              "YouTube: Computerphile Cryptography series"
-            ],
+          { name: "CryptoHack (free interactive cryptography challenges)", url: "https://www.google.com/search?q=CryptoHack%20(free%20interactive%20cryptography%20challenges)" },
+          { name: "Coursera Cryptography I by Stanford (free audit)", url: "https://www.google.com/search?q=Coursera%20Cryptography%20I%20by%20Stanford%20(free%20audit)" },
+          { name: "Khan Academy Cryptography basics", url: "https://www.google.com/search?q=Khan%20Academy%20Cryptography%20basics" },
+          { name: "Practical Cryptography (free online book)", url: "https://www.google.com/search?q=Practical%20Cryptography%20(free%20online%20book)" },
+          { name: "YouTube: Computerphile Cryptography series", url: "https://www.google.com/search?q=YouTube%3A%20Computerphile%20Cryptography%20series" }
+        ],
             careers: ["Cryptographer", "Security Researcher", "Blockchain Developer", "Cryptanalyst", "Security Engineer"]
           }
         }
@@ -1355,12 +1355,12 @@ const ROADMAP_DATA = {
             ],
             tools: ["ChemDraw", "NMR & IR spectrometers", "Lab glassware", "Reaction databases (Reaxys basics)"],
             resources: [
-              "Khan Academy Organic Chemistry",
-              "MIT OpenCourseWare Organic Chemistry",
-              "Coursera Organic Chemistry courses (free audit)",
-              "Master Organic Chemistry (free blog)",
-              "YouTube: Organic Chemistry Tutor"
-            ],
+          { name: "Khan Academy Organic Chemistry", url: "https://www.google.com/search?q=Khan%20Academy%20Organic%20Chemistry" },
+          { name: "MIT OpenCourseWare Organic Chemistry", url: "https://www.google.com/search?q=MIT%20OpenCourseWare%20Organic%20Chemistry" },
+          { name: "Coursera Organic Chemistry courses (free audit)", url: "https://www.google.com/search?q=Coursera%20Organic%20Chemistry%20courses%20(free%20audit)" },
+          { name: "Master Organic Chemistry (free blog)", url: "https://www.google.com/search?q=Master%20Organic%20Chemistry%20(free%20blog)" },
+          { name: "YouTube: Organic Chemistry Tutor", url: "https://www.google.com/search?q=YouTube%3A%20Organic%20Chemistry%20Tutor" }
+        ],
             careers: ["Organic Chemist", "Medicinal Chemist", "R&D Scientist", "Process Chemist", "Quality Control Chemist"]
           },
           "analytical-chemistry": {
@@ -1392,12 +1392,12 @@ const ROADMAP_DATA = {
             ],
             tools: ["HPLC", "GC", "UV-Vis Spectrophotometer", "AAS", "Mass Spectrometer"],
             resources: [
-              "NPTEL Analytical Chemistry courses (free)",
-              "Khan Academy Chemistry fundamentals",
-              "Coursera Analytical Chemistry courses (free audit)",
-              "LibreTexts Analytical Chemistry (free textbook)",
-              "YouTube: Analytical chemistry lab technique videos"
-            ],
+          { name: "NPTEL Analytical Chemistry courses (free)", url: "https://www.google.com/search?q=NPTEL%20Analytical%20Chemistry%20courses%20(free)" },
+          { name: "Khan Academy Chemistry fundamentals", url: "https://www.google.com/search?q=Khan%20Academy%20Chemistry%20fundamentals" },
+          { name: "Coursera Analytical Chemistry courses (free audit)", url: "https://www.google.com/search?q=Coursera%20Analytical%20Chemistry%20courses%20(free%20audit)" },
+          { name: "LibreTexts Analytical Chemistry (free textbook)", url: "https://www.google.com/search?q=LibreTexts%20Analytical%20Chemistry%20(free%20textbook)" },
+          { name: "YouTube: Analytical chemistry lab technique videos", url: "https://www.google.com/search?q=YouTube%3A%20Analytical%20chemistry%20lab%20technique%20videos" }
+        ],
             careers: ["Analytical Chemist", "Quality Control Analyst", "Forensic Scientist", "Environmental Analyst", "Food Safety Analyst"]
           },
           biochemistry: {
@@ -1429,12 +1429,12 @@ const ROADMAP_DATA = {
             ],
             tools: ["PCR machine", "Gel electrophoresis", "PyMOL", "BLAST", "Spectrophotometer"],
             resources: [
-              "Khan Academy Biochemistry",
-              "MIT OpenCourseWare Biology & Biochemistry",
-              "NPTEL Biochemistry courses (free)",
-              "NCBI free bioinformatics resources",
-              "YouTube: Crash Course Biology/Chemistry"
-            ],
+          { name: "Khan Academy Biochemistry", url: "https://www.google.com/search?q=Khan%20Academy%20Biochemistry" },
+          { name: "MIT OpenCourseWare Biology & Biochemistry", url: "https://www.google.com/search?q=MIT%20OpenCourseWare%20Biology%20%26%20Biochemistry" },
+          { name: "NPTEL Biochemistry courses (free)", url: "https://www.google.com/search?q=NPTEL%20Biochemistry%20courses%20(free)" },
+          { name: "NCBI free bioinformatics resources", url: "https://www.google.com/search?q=NCBI%20free%20bioinformatics%20resources" },
+          { name: "YouTube: Crash Course Biology/Chemistry", url: "https://www.google.com/search?q=YouTube%3A%20Crash%20Course%20Biology%2FChemistry" }
+        ],
             careers: ["Biochemist", "Molecular Biologist", "Research Scientist", "Clinical Lab Scientist", "Biotechnology Researcher"]
           },
           "green-chemistry": {
@@ -1466,12 +1466,12 @@ const ROADMAP_DATA = {
             ],
             tools: ["LCA software (SimaPro basics)", "Green chemistry metrics calculators", "Lab equipment", "Chemical databases"],
             resources: [
-              "ACS Green Chemistry Institute free resources",
-              "Coursera Green Chemistry courses (free audit)",
-              "NPTEL Green Chemistry courses",
-              "EPA Green Chemistry resources (free)",
-              "YouTube: Green Chemistry lecture series"
-            ],
+          { name: "ACS Green Chemistry Institute free resources", url: "https://www.google.com/search?q=ACS%20Green%20Chemistry%20Institute%20free%20resources" },
+          { name: "Coursera Green Chemistry courses (free audit)", url: "https://www.google.com/search?q=Coursera%20Green%20Chemistry%20courses%20(free%20audit)" },
+          { name: "NPTEL Green Chemistry courses", url: "https://www.google.com/search?q=NPTEL%20Green%20Chemistry%20courses" },
+          { name: "EPA Green Chemistry resources (free)", url: "https://www.google.com/search?q=EPA%20Green%20Chemistry%20resources%20(free)" },
+          { name: "YouTube: Green Chemistry lecture series", url: "https://www.google.com/search?q=YouTube%3A%20Green%20Chemistry%20lecture%20series" }
+        ],
             careers: ["Green Chemist", "Sustainability Consultant", "Environmental Chemist", "R&D Scientist (Sustainable Products)", "Process Engineer"]
           },
           "materials-chemistry": {
@@ -1503,12 +1503,12 @@ const ROADMAP_DATA = {
             ],
             tools: ["XRD", "SEM/TEM", "Spectroscopy tools", "Polymer synthesis lab equipment"],
             resources: [
-              "MIT OpenCourseWare Materials Chemistry",
-              "NPTEL Materials Chemistry courses (free)",
-              "Coursera Materials Science & Chemistry courses (free audit)",
-              "Royal Society of Chemistry free resources",
-              "YouTube: NileRed (chemistry experiments)"
-            ],
+          { name: "MIT OpenCourseWare Materials Chemistry", url: "https://www.google.com/search?q=MIT%20OpenCourseWare%20Materials%20Chemistry" },
+          { name: "NPTEL Materials Chemistry courses (free)", url: "https://www.google.com/search?q=NPTEL%20Materials%20Chemistry%20courses%20(free)" },
+          { name: "Coursera Materials Science & Chemistry courses (free audit)", url: "https://www.google.com/search?q=Coursera%20Materials%20Science%20%26%20Chemistry%20courses%20(free%20audit)" },
+          { name: "Royal Society of Chemistry free resources", url: "https://www.google.com/search?q=Royal%20Society%20of%20Chemistry%20free%20resources" },
+          { name: "YouTube: NileRed (chemistry experiments)", url: "https://www.google.com/search?q=YouTube%3A%20NileRed%20(chemistry%20experiments)" }
+        ],
             careers: ["Materials Chemist", "R&D Scientist", "Polymer Scientist", "Nanotechnology Researcher", "Process Development Chemist"]
           }
         }
