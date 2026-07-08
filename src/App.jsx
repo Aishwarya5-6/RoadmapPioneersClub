@@ -301,52 +301,93 @@ function AppContent() {
         {isFullScreenView && activeSub ? (
           <>
             <h1>{activeSub.name}</h1>
-            <div className="kanban-scroll">
-
-              {activeSub.beginner?.topics?.length ? (
-                <div className="kanban-col">
-                  <h3>Beginner</h3>
-                  {activeSub.beginner.topics.map((t, i) => (
-                    <div key={i} className="kanban-item"><h4>{t}</h4></div>
-                  ))}
-                  {activeSub.beginner.skills?.map((s, i) => (
-                    <div key={`skill-${i}`} className="kanban-item"><span className="kanban-tag">Skill</span><h4>{s}</h4></div>
-                  ))}
+            <div className="dashboard-scroll">
+              
+              {activeSub.intro && (
+                <div className="kanban-intro-box">
+                  <h3>Overview</h3>
+                  <p><strong>What is it?</strong> {activeSub.intro.what}</p>
+                  <p><strong>Who is it for?</strong> {activeSub.intro.who}</p>
                 </div>
-              ) : null}
+              )}
 
-              {activeSub.intermediate?.concepts?.length ? (
-                <div className="kanban-col">
-                  <h3>Intermediate</h3>
-                  {activeSub.intermediate.concepts.map((c, i) => (
-                    <div key={i} className="kanban-item"><h4>{c}</h4></div>
-                  ))}
-                  {activeSub.intermediate.tools?.map((t, i) => (
-                    <div key={`tool-${i}`} className="kanban-item"><span className="kanban-tag">Tool</span><h4>{t}</h4></div>
-                  ))}
-                </div>
-              ) : null}
+              <div className="kanban-grid-3">
+                {activeSub.beginner?.topics?.length ? (
+                  <div className="kanban-col">
+                    <h3>Beginner</h3>
+                    {activeSub.beginner.topics.map((t, i) => (
+                      <div key={i} className="kanban-item"><h4>{t}</h4></div>
+                    ))}
+                    {activeSub.beginner.skills?.map((s, i) => (
+                      <div key={`skill-${i}`} className="kanban-item"><span className="kanban-tag">Skill</span><h4>{s}</h4></div>
+                    ))}
+                  </div>
+                ) : null}
 
-              {activeSub.advanced?.skills?.length ? (
-                <div className="kanban-col">
-                  <h3>Advanced</h3>
-                  {activeSub.advanced.skills.map((s, i) => (
-                    <div key={i} className="kanban-item"><h4>{s}</h4></div>
-                  ))}
-                  {activeSub.advanced.research?.map((r, i) => (
-                    <div key={`res-${i}`} className="kanban-item"><span className="kanban-tag">Research</span><h4>{r}</h4></div>
-                  ))}
-                </div>
-              ) : null}
+                {activeSub.intermediate?.concepts?.length ? (
+                  <div className="kanban-col">
+                    <h3>Intermediate</h3>
+                    {activeSub.intermediate.concepts.map((c, i) => (
+                      <div key={i} className="kanban-item"><h4>{c}</h4></div>
+                    ))}
+                    {activeSub.intermediate.tools?.map((t, i) => (
+                      <div key={`tool-${i}`} className="kanban-item"><span className="kanban-tag">Tool</span><h4>{t}</h4></div>
+                    ))}
+                  </div>
+                ) : null}
 
-              {activeSub.projects?.length ? (
-                <div className="kanban-col">
-                  <h3>Projects</h3>
-                  {activeSub.projects.map((p, i) => (
-                    <div key={i} className="kanban-item"><h4>{p}</h4></div>
-                  ))}
-                </div>
-              ) : null}
+                {activeSub.advanced?.skills?.length ? (
+                  <div className="kanban-col">
+                    <h3>Advanced</h3>
+                    {activeSub.advanced.skills.map((s, i) => (
+                      <div key={i} className="kanban-item"><h4>{s}</h4></div>
+                    ))}
+                    {activeSub.advanced.research?.map((r, i) => (
+                      <div key={`res-${i}`} className="kanban-item"><span className="kanban-tag">Research</span><h4>{r}</h4></div>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+
+              <div className="kanban-grid-2">
+                {activeSub.projects?.length ? (
+                  <div className="kanban-col">
+                    <h3>Projects</h3>
+                    {activeSub.projects.map((p, i) => (
+                      <div key={i} className="kanban-item"><h4>{p}</h4></div>
+                    ))}
+                  </div>
+                ) : null}
+
+                {activeSub.tools?.length ? (
+                  <div className="kanban-col">
+                    <h3>Tools</h3>
+                    {activeSub.tools.map((t, i) => (
+                      <div key={i} className="kanban-item"><h4>{t}</h4></div>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+
+              <div className="kanban-grid-2">
+                {activeSub.resources?.length ? (
+                  <div className="kanban-col">
+                    <h3>Resources</h3>
+                    {activeSub.resources.map((r, i) => (
+                      <div key={i} className="kanban-item"><h4>{r}</h4></div>
+                    ))}
+                  </div>
+                ) : null}
+
+                {activeSub.careers?.length ? (
+                  <div className="kanban-col">
+                    <h3>Careers</h3>
+                    {activeSub.careers.map((c, i) => (
+                      <div key={i} className="kanban-item"><h4>{c}</h4></div>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
 
             </div>
           </>
