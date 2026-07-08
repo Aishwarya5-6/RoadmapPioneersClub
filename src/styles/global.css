@@ -299,7 +299,7 @@ h6 {
   padding: 1.5rem;
   cursor: pointer;
   pointer-events: auto;
-  box-shadow: 0 8px 30px rgba(13, 82, 191, 0.04);
+  box-shadow: 6px 6px 0 var(--charcoal-ink);
   /* Ellipse math: 540px wide, 290px tall radius */
   --current-angle: calc(var(--angle) + var(--spin-angle));
   left: calc(50% + cos(var(--current-angle)) * 540px);
@@ -310,7 +310,7 @@ h6 {
 }
 
 .orbit-card:hover {
-  box-shadow: 0 20px 50px rgba(13, 82, 191, 0.1);
+  box-shadow: 10px 10px 0 var(--charcoal-ink);
   scale: 1.05;
   z-index: 20;
 }
