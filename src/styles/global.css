@@ -425,12 +425,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
+  .header-bar {
+    top: 1rem;
+    left: 1rem;
+  }
+  
   /* Orbit View -> Vertical Stack */
   .orbit-container {
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
-    padding-top: 110px;
+    padding-top: 200px;
     padding-bottom: 2rem;
   }
   
